@@ -1,9 +1,11 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using Webserver.Models;
 
 namespace Webserver.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -12,7 +14,7 @@ namespace Webserver.Controllers
         {
             _logger = logger;
         }
-
+       // [AllowAnonymous]
         public IActionResult Index()
         {
             return View();
